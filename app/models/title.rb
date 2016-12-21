@@ -1,11 +1,11 @@
 class Title < ActiveRecord::Base
   # attr_accessor :phrase
   validates_presence_of :phrase
-  before_create :parse_phrase
+  before_create :generate_phrase
 
   WORD_TYPES = ["noun", "verb"]
 
-  def parse_phrase
+  def generate_phrase
     WORD_TYPES.each do |word|
       phrase.gsub!(word, Word.send("random_#{word}").name)
     end
