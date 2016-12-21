@@ -12,4 +12,4 @@ TBD.
 
 === GENERATING NEW TITLES FROM EXISTING TEMPLATES
 
-Title.all.map {|t| t.parse_phrase } # This should probably be re-named 'generate'-phrase. 
+Title.all.each {|t| puts t.parse_phrase } # This should probably be re-named 'generate'-phrase. 
