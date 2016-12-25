@@ -1,15 +1,11 @@
 == README
 
-As of now, rake db:seed is all of the setup required to see populated titles.
+Clone Repo. `Bundle Install` and such.
 
 === REQUESTING FRESH TITLES
 
-buzz.feed_me => an array of titles (still wrapped in xml tags)
+`Buzz.feed_me => list of Title objects (with nouns pre-swapped)`
 
 === TURNING A FRESH TITLE INTO A TEMPLATE
 
-TBD.
-
-=== GENERATING NEW TITLES FROM EXISTING TEMPLATES
-
-Title.all.each {|t| puts t.parse_phrase } # This should probably be re-named 'generate'-phrase. 
+`PhraseProcessor.process_title(<title) => { :nouns => ["dog", "log"], :verbs => ["ran"] }`
