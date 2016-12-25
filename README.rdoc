@@ -8,4 +8,4 @@ Buzz.feed_me => list of Title objects (with nouns pre-swapped)
 
 === TURNING A FRESH TITLE INTO A TEMPLATE
 
-PhraseProcessor.process_title(<title) => { :nouns => ["dog", "log"], :verbs => ["ran"] }
+PhraseProcessor.process_title(<title>) => { :nouns => ["dog", "log"], :verbs => ["ran"] }
