@@ -6,15 +6,19 @@ class Buzz
   # Parses a popular site for article titles, cleans them up,
   # swaps them with random entries from the Words table and creates Title objects.
   def self.feed_me!
-    batch = Nokogiri::XML(open("https://www.buzzfeed.com/quizzes.xml"))
-
-    @titles = batch.xpath("//title").map {|node| node.to_s }
+    @titles = request_titles
 
     remove_junk_titles
     remove_xml_tags
     replace_quotation_marks
 
     create_titles!
+  end
+
+  def self.request_titles
+    batch = Nokogiri::XML(open("https://www.buzzfeed.com/quizzes.xml"))
+
+    batch.xpath("//title").map {|node| node.to_s }
   end
 
   def self.remove_xml_tags
