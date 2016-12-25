@@ -8,7 +8,7 @@
 
 verbs   = ["run", "laugh", "do", "doing", "couchsurfing"]
 
-nouns   = ["cake", "bear", "dog", "log", "pictures of ryan seacrest", "hairballs", "ballerinas"]
+nouns   = ["Cakes", "Bears", "Dogs", "Logs", "Pictures of Ryan Seacrest", "Hairballs", "Ballerinas"]
 
 phrases = ["18 nouns that are just too fucking real",
           "Can you ace this noun quiz?",
