@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+As of now, rake db:seed is all of the setup required to see populated titles.
 
-Things you may want to cover:
+=== REQUESTING FRESH TITLES
 
-* Ruby version
+buzz.feed_me => an array of titles (still wrapped in xml tags)
 
-* System dependencies
+=== TURNING A FRESH TITLE INTO A TEMPLATE
 
-* Configuration
+TBD.
 
-* Database creation
+=== GENERATING NEW TITLES FROM EXISTING TEMPLATES
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Title.all.each {|t| puts t.parse_phrase } # This should probably be re-named 'generate'-phrase. 
