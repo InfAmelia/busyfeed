@@ -5,7 +5,7 @@ module TitlesHelper
     </div>".html_safe
   end
 
-  def row(title, left_width:, right_width: nil)
+  def row(title, left_width: 7, right_width: nil)
     right_width ||= 12-left_width
 
     "<div class='row'>
