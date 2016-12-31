@@ -11,7 +11,7 @@ class Title < ActiveRecord::Base
     end
   end
 
-  # def get_subject
-  #   PhraseProcessor.process_title(self)
-  # end
+  def self.random
+    find(Title.pluck(:id).shuffle.first)
+  end
 end
