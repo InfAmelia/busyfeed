@@ -1,5 +1,5 @@
 // Place all the styles related to the Titles controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .titles {
@@ -7,4 +7,24 @@
   p {
     margin-left: 5em;
   }
+}
+
+div.row {
+  margin-bottom: 1px;
+}
+
+div.card-action {
+  p {
+    margin-left: 0px;
+    font-size: .75em;
+  }
+}
+
+div.article-card.card.horizontal{
+  margin-bottom: 3px;
+}
+
+div.posted-by.card-action{
+  padding-top: 3px;
+  padding-bottom: 3px;
 }

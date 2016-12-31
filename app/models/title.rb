@@ -9,11 +9,14 @@ class Title < ActiveRecord::Base
     result[:nouns].keys.each do |noun|
       phrase.gsub!(noun, Word.send("random_noun").name)
     end
+  end
 
-    yield if block_given?
+  def self.random
+    find(Title.pluck(:id).shuffle.first)
   end
 
   def swap_nouns!
-    swap_nouns { save }
+    swap_nouns
+    save!
   end
 end

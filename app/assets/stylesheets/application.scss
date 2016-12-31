@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+
+.container {
+   text-align: left;
+   width: 70%;
+}
+
+div.busyfeed-title {
+   font-size: x-large;
+   font-weight: 600;
+   color: red;
+}
+
+ul#nav-mobile {
+  margin-left: 150px;
+
+  a {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #0f64ee;
+    font-weight: 500;
+  }
+}
+
+div.navbar-fixed {
+  nav {
+    background-color: white;
+    font-family: "Roboto", black;
+  }
+}
+
+div.right.input-field {
+  border: 10px;
+}
+
+html {
+   background-color: #F6F6F6;
+}
+
+i.search.material-icons {
+  color: black;
+}
