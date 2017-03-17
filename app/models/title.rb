@@ -1,22 +1,27 @@
 class Title < ActiveRecord::Base
+  include ModelHelper
   # attr_accessor :phrase
-  validates_presence_of :phrase
-  before_create :swap_nouns
+  # attr_accessor :noun
 
-  def swap_nouns
+  validates_presence_of :phrase
+  before_create :map_nouns
+
+  def get_random_noun
+    self.noun = Word.random_noun.name
+  end
+
+  # should only be called automatically
+  def map_nouns
     result = PhraseProcessor.process_title(self)
 
-    result[:nouns].keys.each do |noun|
-      phrase.gsub!(noun, Word.send("random_noun").name)
-    end
+    noun = result[:nouns].keys.first
+
+    Word.create_if_unique(noun, :noun)
+
+    phrase.gsub!(noun, "[noun]")
   end
 
-  def self.random
-    find(Title.pluck(:id).shuffle.first)
-  end
-
-  def swap_nouns!
-    swap_nouns
-    save!
+  def swapped_phrase
+    phrase.gsub("[noun]", noun)
   end
 end

@@ -13,6 +13,13 @@ class Buzz
     replace_quotation_marks
 
     create_titles!
+    populate_nouns
+  end
+
+  def self.populate_nouns
+    Title.where(:noun => nil).each do |t|
+      t.get_random_noun!
+    end
   end
 
   def self.request_titles
