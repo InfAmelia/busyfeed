@@ -1,57 +1,70 @@
 module TitlesHelper
+  USERNAMES = ["Peter Abelard", "Theodor Adorno", "Thomas Aquinas", "Hannah Arendt", "Aristotle", "Augustine", "Francis Bacon", "Roland Barthes", "Georges Bataille", "Jean Baudrillard", "Simone de Beauvoir", "Walter Benjamin", "George Berkeley", "Judith Butler"]
+
   def posted_by(name)
     "<div class='posted-by card-action'>
       <p>[img] #{name} • #{rand(12)} hours ago.</p>
     </div>".html_safe
   end
 
-  def row(title, left_width: 7, right_width: nil)
+  def row(title_one, title_two, left_width: 6, right_width: 6)
     right_width ||= 12-left_width
 
-    "<div class='row'>
-      #{left_title_card(title, width: left_width)}
-      #{right_title_card(title, width: right_width)}
-    </div>".html_safe
+    if title_one && title_two
+      "<div class='row'>
+        #{generate_random_card(title_one, :left)}
+        #{generate_random_card(title_two, :right)}
+      </div>".html_safe
+    end
   end
 
-  def right_title_card(title, width: 5)
+  def right_title_card(title, width: 6)
     "<div class='col s12 m#{width}'>
       <div class='article-card card horizontal'>
         <div class='card-image'>
-          <img src='http://lorempixel.com/100/190/nature/6'>
+          <img src='http://lorempixel.com/100/190/nature/#{title.id}'>
         </div>
         <div class='card-stacked'>
           <div class='card-content'>
             <p>
-              <strong>#{title.phrase}</strong><br />
+              <strong>#{title.swapped_phrase}</strong><br />
               And we can't stop talking about it.
             </p>
           </div>
 
-          #{posted_by("Margaret Thatcher")}
+          #{posted_by(USERNAMES.shuffle.first)}
         </div>
       </div>
     </div>".html_safe
   end
 
-  def left_title_card(title, width: 7)
+  def left_title_card(title, width: 6)
     "<div class='col s12 m#{width}'>
         <div class='article-card card horizontal'>
           <div class='card-image'>
-            <img src='http://lorempixel.com/100/190/nature/6'>
+            <img src='http://lorempixel.com/100/190/nature/#{title.id}'>
           </div>
 
         <div class='card-stacked'>
           <div class='card-content'>
             <p>
-              <strong>#{title.phrase}</strong><br />
+              <strong>#{title.swapped_phrase}</strong><br />
               And I can't even about it
             </p>
           </div>
 
-          #{posted_by('Benjamin Franklin')}
+          #{posted_by(USERNAMES.shuffle.first)}
         </div>
       </div>
     </div>".html_safe
+  end
+
+  def generate_random_card(title, position)
+    case position
+      when :left
+        left_title_card(title)
+      when :right
+        right_title_card(title)
+    end
   end
 end

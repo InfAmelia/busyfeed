@@ -1,7 +1,7 @@
 <div class="container">
   <div class="titles">
-     <% @titles.shuffle.each do |title| %>
-        <%= row(title) %>
+     <% @titles.shuffle.each_slice(2) do |title_one, title_two| %>
+        <%= row(title_one, title_two) %>
      <% end %>
   </div>
 </div>

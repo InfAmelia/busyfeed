@@ -9,14 +9,16 @@
 verbs   = ["run", "laugh", "do", "doing", "couchsurfing"]
 
 nouns   = ["Cakes", "Bears", "Dogs", "Logs", "Pictures of Ryan Seacrest", "Hairballs", "Ballerinas"]
+          # From Phrase Processing:
+          #   hamburgers, scuba, kitten, drugs, hats, kittens, sloths, tweets, giraffes
 
-phrases = ["18 nouns that are just too fucking real",
-          "Can you ace this noun quiz?",
-          "Pick a noun to see if you'll verb a noun",
-          "How much noun have you tried?",
-          "24 nouns that will make you question the nature of your reality",
-          "Literally 18 nouns of people verbing stuff",
-          "10 nouns that you totally won't believe exist"]
+phrases = ["18 hamburgers that are just too fucking real",
+          "Can you find the hats?",
+          "Pick 3 kittens to see if you'll have a boyfriend in 2017",
+          "How much drugs have you tried?",
+          "24 sloths that will make you question the nature of your reality",
+          "Literally 18 tweets of people crushing cans",
+          "10 giraffes that you totally won't believe exist"]
 
 
 

@@ -1,4 +1,5 @@
 class Word < ActiveRecord::Base
+  include ModelHelper
   # attr_accessor :name
   # scope :verb,  :noun
   enum word_type: [:verb, :noun]
@@ -13,7 +14,7 @@ class Word < ActiveRecord::Base
     end
   end
 
-  def self.random
-    find(Word.pluck(:id).shuffle.first)
+  def self.create_if_unique(name, type)
+    create!(:name => name, :word_type => type) unless Word.where(:name => name).exists?
   end
 end

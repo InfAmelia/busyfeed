@@ -5,7 +5,6 @@ class PhraseProcessor
     @title = title
   end
 
-  # if I want to get all machine learning later
   def self.process_title(title)
     processor = new(title)
     { :nouns => processor.get_nouns, :verbs => processor.get_verbs }
