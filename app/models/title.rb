@@ -5,6 +5,7 @@ class Title < ActiveRecord::Base
 
   validates_presence_of :phrase
   before_create :map_nouns
+  before_create :get_random_noun
 
   def get_random_noun
     self.noun = Word.random_noun.name
